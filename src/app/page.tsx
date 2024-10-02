@@ -1,25 +1,23 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default function Home() {
+  const { getUser } = getKindeServerSession()
+  const user = getUser()
+  console.log(user)
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
-        <div className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
-          <p className="text-sm font-semibold text-gray-700">
-            Quill is now public!
-          </p>
-        </div>
+        
         <h1 className="max-w-4xl text-5xl font-bold md:text-7xl">
-          Chat with your <span className="text-blue-600">documents</span> in
-          seconds.
+        Illuminate Your Financial Legacy with AI-Enhanced <span className="text-blue-600">Precision</span>
         </h1>
         <p className="mt-5 max-w-prose text-zinc-700 sm:text-lg">
-          Quill allows you to have conversations with any PDF document. Simply
-          upload your file and start asking questions right away.
+        Where cutting-edge AI and expert human insight converge to revolutionize your life insurance, estate planning, and wealth preservation strategies.
         </p>
 
         <Link
@@ -27,13 +25,12 @@ export default function Home() {
             size: "lg",
             className: "mt-5",
           })}
-          href="/dashboard"
+          href="/aitoolshub"
           target="_blank"
         >
-          Get started <ArrowRight className="ml-2 h-5 w-5" />
+          Begin Your Journey <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
-      </MaxWidthWrapper>
-
+      
       {/* value proposition section */}
       <div>
         <div className="relative isolate">
@@ -133,13 +130,13 @@ export default function Home() {
                 Start asking questions
               </span>
               <span className="mt-2 text-zinc-700">
-                It's that simple. Try out Quill today - it really takes less
+                It&apos;s that simple. Try out Quill today - it really takes less
                 than a minute
               </span>
             </div>
           </li>
         </ol>
-
+        {/* image */}
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
@@ -154,7 +151,26 @@ export default function Home() {
             </div>
           </div>
         </div>
+          {/* image */}
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mt-16 flow-root sm:mt-24">
+            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+              <Image
+                src="/brand-logo.svg"
+                alt="uploading preview"
+                width={1419}
+                height={732}
+                quality={100}
+                className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
+              />
+            </div>
+          </div>
+        </div>
       </div>
+      
+      </MaxWidthWrapper>
+
+
     </>
   );
 }
